@@ -32,30 +32,6 @@ A complete authentication system built with **React.js**, **Node.js**, **Express
 
 ## 📁 Folder Structure
 
-AuthSystem/
-├── client/ # React frontend
-│ ├── src/
-│ │ ├── assets/
-│ │ ├── components/
-│ │ ├── context/
-│ │ └── pages/
-├── server/ # Node.js backend
-│ ├── controllers/
-│ ├── middleware/
-│ ├── models/
-│ └── routes/
-
-Frontend Setup
-cd client
-npm install
-npm run dev
-
-
-Backend Setup
-cd server
-npm install
-npm run dev
-
 🌐 Deployment
 Frontend: Vercel (vercel.json configured)
 Backend: Render / Railway
@@ -66,11 +42,19 @@ Contact Us via the About Page of this project/ vinitskaple@gmail.com
 
 ⭐ Credits
 Designed & Developed by Vinit Kaple
-Built with ❤️ to demonstrate a real-world auth flow
+
 
 ---
 
 Let me know if you'd like this in your project directory or need a markdown file version to save.
+
+
+![image](https://github.com/user-attachments/assets/199d36bf-cbae-4f5a-84f1-dda0aed94efb)
+
+![image](https://github.com/user-attachments/assets/38dd44e8-7ad0-4c34-a1dd-45d973f04ca0)
+
+![image](https://github.com/user-attachments/assets/20101339-0c51-4047-bd2e-987f64ab75c5)
+
 
 
 
