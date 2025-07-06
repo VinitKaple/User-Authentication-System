@@ -12,27 +12,26 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 const allowedOrigins = [
-  "http://localhost:5173",
-  "https://user-authentication-system-xi.vercel.app",
+  "http://localhost:5173", // Local development
+  "https://authsystem-seven.vercel.app", // ✅ Your latest deployed frontend
 ];
-
-app.use(express.json());
-app.use(cookieParser());
 
 app.use(
   cors({
     origin: function (origin, callback) {
+      // Allow requests with no origin (e.g., Postman, mobile apps)
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
       }
     },
-    credentials: true,
+    credentials: true, // Required for cookies/sessions
   })
 );
 
-
+app.use(express.json());
+app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 
