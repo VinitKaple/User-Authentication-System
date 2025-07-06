@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast } from "react-toastify";
 
 const codeSnippets = [
@@ -118,7 +117,14 @@ export const generateToken = (userId, res) => {
 const ViewCodes = () => {
   const navigate = useNavigate();
 
-  const handleCopy = () => toast.success("📋 Code copied!");
+  const handleCopy = async (code) => {
+    try {
+      await navigator.clipboard.writeText(code);
+      toast.success("📋 Code copied!");
+    } catch (error) {
+      toast.error("❌ Failed to copy");
+    }
+  };
 
   return (
     <div className="min-h-screen px-4 sm:px-16 py-6 bg-white text-gray-800">
@@ -149,11 +155,12 @@ const ViewCodes = () => {
             </pre>
 
             <div className="mt-4 text-right">
-              <CopyToClipboard text={snippet.code} onCopy={handleCopy}>
-                <button className="flex items-center gap-2 border border-gray-500 rounded-full px-6 py-2 text-gray-800 hover:bg-gray-100 transition-all">
-                  📋 Copy Code
-                </button>
-              </CopyToClipboard>
+              <button
+                onClick={() => handleCopy(snippet.code)}
+                className="flex items-center gap-2 border border-gray-500 rounded-full px-6 py-2 text-gray-800 hover:bg-gray-100 transition-all"
+              >
+                📋 Copy Code
+              </button>
             </div>
           </div>
         ))}
