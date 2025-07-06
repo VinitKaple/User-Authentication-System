@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 4000;
 
 const allowedOrigins = [
   "http://localhost:5173", // Local development
-  "https://authsystem-seven.vercel.app", // ✅ Your latest deployed frontend
+  "https://user-authentication-system-ei7h.vercel.app", // ✅ Your latest deployed frontend
 ];
 
 app.use(
