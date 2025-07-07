@@ -17,49 +17,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { backendUrl, setIsLoggedin, getUserData } = useContext(AppContent);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  toast.success("✅ Demo-Login Successful");
+  setTimeout(() => {
+    navigate("/");
+  }, 1500);
+};
 
-  const handleSubmit = async (e) => {
-    try {
-      e.preventDefault();
-      axios.defaults.withCredentials = true;
-
-      if (state === "SignUp") {
-        const { data } = await axios.post(backendUrl + "/api/auth/register", {
-          name,
-          email,
-          password,
-        });
-
-        if (data.success) {
-          setIsLoggedin(true);
-          getUserData();
-          navigate("/");
-        } else {
-          toast.error(data.message);
-        }
-      } else {
-        // Login flow
-        const { data } = await axios.post(backendUrl + "/api/auth/login", {
-          email,
-          password,
-        });
-
-        if (data.success) {
-          setIsLoggedin(true);
-          getUserData();
-          navigate("/");
-        } else {
-          toast.error(data.message);
-        }
-      }
-    } catch (err) {
-      console.error("Auth error:", err);
-      const errorMessage =
-        err.response?.data?.message ||
-        "Something went wrong. Please try again.";
-      toast.error(errorMessage);
-    }
-  };
 
   return (
     <div className="flex items-center justify-center min-h-screen px-6 bg-gradient-to-br from-blue-200 to-purple-400 relative">
@@ -135,8 +100,7 @@ const Login = () => {
               <span>Minimum 5 characters required</span>
               {state === "Login" && (
                 <span
-                  className="text-indigo-400 underline cursor-pointer"
-                  onClick={() => navigate("/resetPassword")}
+                  className="text-indigo-400 underline"
                 >
                   Forgot Password?
                 </span>
