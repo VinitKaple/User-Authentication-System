@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
-import { AppContent } from "../context/AppContext";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { isLoggedin } = useContext(AppContent); // ✅ use isLoggedin only
 
   const handleNavigate = (path) => {
     navigate(path);
@@ -37,34 +35,23 @@ const Header = () => {
         go-to place to understand how authentication works in web development!
       </p>
 
-      {/* Conditional Buttons */}
-      {!isLoggedin ? (
+      {/* View Codes & About Buttons - Always Visible */}
+      <div className="flex gap-4">
         <button
-          onClick={() => navigate("/login")}
+          onClick={() => handleNavigate("/view-codes")}
           className="flex items-center gap-2 border border-gray-500 rounded-full px-6 py-2 text-gray-800 hover:bg-gray-100 transition-all"
         >
-          Get Started <img src={assets.arrow_icon} alt="Arrow Icon" />
+          View Codes <img src={assets.arrow_icon} alt="Arrow Icon" />
         </button>
-      ) : (
-        <div className="flex gap-4">
-          <button
-            onClick={() => handleNavigate("/view-codes")}
-            className="flex items-center gap-2 border border-gray-500 rounded-full px-6 py-2 text-gray-800 hover:bg-gray-100 transition-all"
-          >
-            View Codes <img src={assets.arrow_icon} alt="Arrow Icon" />
-          </button>
-          <button
-            onClick={() => handleNavigate("/about")}
-            className="flex items-center gap-2 border border-gray-500 rounded-full px-6 py-2 text-gray-800 hover:bg-gray-100 transition-all"
-          >
-            About <img src={assets.arrow_icon} alt="Arrow Icon" />
-          </button>
-        </div>
-      )}
+        <button
+          onClick={() => handleNavigate("/about")}
+          className="flex items-center gap-2 border border-gray-500 rounded-full px-6 py-2 text-gray-800 hover:bg-gray-100 transition-all"
+        >
+          About <img src={assets.arrow_icon} alt="Arrow Icon" />
+        </button>
+      </div>
     </div>
   );
 };
 
 export default Header;
-
-

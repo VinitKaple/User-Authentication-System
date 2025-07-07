@@ -32,7 +32,6 @@ const About = () => {
             <li>🔐 Secure user registration with bcrypt hashing</li>
             <li>📥 Login with JWT token (httpOnly cookie)</li>
             <li>🛡️ Protected API routes using middleware</li>
-            <li>📧 Password reset flow with OTP via email</li>
             <li>⚙️ Modular codebase, clean UI, responsive design</li>
           </ul>
         </div>

@@ -66,7 +66,7 @@ const Navbar = () => {
           onClick={() => navigate("/login")}
           className="flex items-center gap-2 border border-gray-500 rounded-full px-6 text-gray-800 bg-white hover:bg-gray-100 transition-all"
         >
-          Login <img src={assets.arrow_icon} alt="arrow" />
+        Demo SignUp <img src={assets.arrow_icon} alt="arrow" />
         </button>
       )}
     </div>
